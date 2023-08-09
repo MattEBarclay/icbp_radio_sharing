@@ -1,0 +1,289 @@
+---
+title: "Radiotherapy results"
+format: 
+  docx: 
+    reference-doc: custom-reference-doc.docx
+output-file: "radio_main_results_2023-08-09.docx"
+---
+
+
+```{r}
+#| label: data-prep_0a
+#| include: false
+# no longer needed
+# source('radio_0loading.R')
+
+```
+
+```{r}
+#| label: data-prep_0b
+#| include: false
+
+source("radio_analysis0_repeated_functions.R")
+
+```
+
+```{r}
+#| label: data-prep_1
+#| include: false
+
+source('radio_analysis1_overall_treatment.R')
+
+```
+
+```{r}
+#| label: data-prep_2
+#| include: false
+
+source('radio_analysis2_trt_odds.R')
+
+```
+
+```{r}
+#| label: data-prep_3
+#| include: false
+
+source('radio_analysis3_overall_time.R')
+
+```
+
+```{r}
+#| label: data-prep_4
+#| include: false
+
+source('radio_analysis4_differences_time.R')
+
+```
+
+```{r}
+#| label: data-prep_5
+#| include: false
+
+source('radio_analysis5_timely_vs_use.R')
+
+
+```
+
+
+### Results table 1. Meta-analysis summaries for percent treated with radiotherapy in the first year post-diagnosis, overall and by site (all patients).
+
+These results are not adjusted for sex, age, cancer site, or any other variable. See also Appendix D.
+
+```{r}
+#| label: analysis1_table
+#| echo: false
+#| results: asis
+
+readRDS("results/radio_analysis1_table.RDS")
+```
+\*the prediction interval shows the range we would expect 95% of new jurisdictions to fall into, and incorporates both the uncertainty around the overall average and the spread of the included jurisdictions
+
+\*\*Tau is the estimated standard deviation of the included jurisdictional estimates, directly measuring the spread of jurisdictions
+
+\*\*\*I^2^ measures the proportion of total variation not due to sampling variation
+
+
+{{< pagebreak >}}
+
+### Results table 2. Meta-analysis summaries for jurisdiction-specific associations with radiotherapy use. 
+
+Results are mutually adjusted for all variables shown (sex, age group, cancer site) and diagnosis year
+
+```{r}
+#| label: analysis2_table
+#| echo: false
+#| results: asis
+
+readRDS("results/radio_analysis2_table.RDS")
+ 
+```
+\*the prediction interval shows the range we would expect 95% of new jurisdictions to fall into, and incorporates both the uncertainty around the overall average and the spread of the included jurisdictions
+
+\*\*Tau is the estimated standard deviation of the included jurisdictional estimates, directly measuring the spread of jurisdictions
+
+\*\*\*I^2^ measures the proportion of total variation not due to sampling variation
+
+{{< pagebreak >}}
+
+### Results table 3. Meta-analysis summaries for time-to-starting-radiotherapy in patients who received radiotherapy, overall and by site (median-of-medians method, see McGrath 2020). 
+
+See also Appendices E and F. 
+
+```{r}
+#| label: analysis3_table
+#| echo: false
+#| results: asis
+
+readRDS("results/radio_analysis3_table.RDS")
+ 
+```
+\*the prediction interval shows the range we would expect 95% of new jurisdictions to fall into, and incorporates both the uncertainty around the overall average and the spread of the included jurisdictions
+
+\*\*Tau is the estimated standard deviation of the included jurisdictional estimates, directly measuring the spread of jurisdictions
+
+\*\*\*I^2^ measures the proportion of total variation not due to sampling variation
+
+{{< pagebreak >}}
+
+### Results table 4. Meta-analysis summary for differences in median time-to-starting-radiotherapy in patients who received radiotherapy by sex, age group and cancer site. 
+
+Results are mutually adjusted for all variables shown (sex, age group, cancer site) and diagnosis year
+
+```{r}
+#| label: analysis4_table
+#| echo: false
+#| results: asis
+
+readRDS("results/radio_analysis4_table.RDS")
+ 
+```
+\*the prediction interval shows the range we would expect 95% of new jurisdictions to fall into, and incorporates both the uncertainty around the overall average and the spread of the included jurisdictions
+
+\*\*Tau is the estimated standard deviation of the included jurisdictional estimates, directly measuring the spread of jurisdictions
+
+\*\*\*I^2^ measures the proportion of total variation not due to sampling variation
+
+{{< pagebreak >}}
+
+### Results figure 1. Overall crude proportion of patients treated by radiotherapy in each jurisdiction, by cancer site. 
+
+Black circles show jurisdictional proportions, and black lines the associated confidence interval.
+
+Grey diamonds show the meta-analysis estimate and its confidence intervals. Wider grey lines show the associated prediction interval.
+
+Estimates not included in producing meta-analysis estimates are shown as hollow light grey circles.
+
+![](results/radio_overall_props.png) 
+{{< pagebreak >}}
+
+#### Results figure 1 \– appendix version 1. Overall crude proportion of patients treated by radiotherapy for each cancer site, by jurisdiction.
+
+Black circles show jurisdictional proportions, and black lines the associated confidence interval.
+
+Grey diamonds show the meta-analysis estimate and its confidence intervals. Wider grey lines show the associated prediction interval.
+
+Estimates not included in producing meta-analysis estimates are shown as hollow light grey circles.
+
+![](results/radio_overall_props_alternative1.png) 
+
+{{< pagebreak >}}
+
+#### Results figure 1 \– appendix version 2. Proportions of patients treated by radiotherapy in the first year post-diagnosis (y axis) plotted as a continuous line by cancer site (x-axis).
+
+In each figure panel, the jurisdiction-specific estimate is shown in bold black line, whereas all other jurisdiction lines are shown in grey. Cancer sites on the x-axis appear in order of increasing radiotherapy use across the total analysis sample comprising all jurisdictions.
+
+![](results/radio_overall_props_alternative2_lines.png) 
+
+
+{{< pagebreak >}}
+
+### Results figure 2. Variation in use of radiotherapy by sex and age group, by jurisdiction (black dots).
+
+Results are mutually adjusted for all variables shown (sex, age group, cancer site).
+Black circles show jurisdictional odds ratios, and black lines the associated confidence interval.
+
+White circle estimates are adjusted for stage at diagnosis – only shown for jurisdictions with >70% completeness of information on stage at diagnosis for each of the 8 cancer sites.
+
+Grey diamonds show the meta-analysis estimate and its confidence intervals. Wider grey lines show the associated prediction interval.
+
+![](results/radio_odds.png) 
+
+{{< pagebreak >}}
+
+### Results figure 3. Median time-to-first radiotherapy course and inter-quartile range for each jurisdiction, by cancer site.
+
+Highly uncertain estimates have been suppressed from the plot but were included in meta-analysis.
+
+Black circles show medians and black lines show inter-quartile ranges.
+
+Grey diamonds show the meta-analysis estimate and its confidence intervals. Wider grey lines show the associated prediction interval.
+
+![](results/radio_time1_overall.png) 
+
+{{< pagebreak >}}
+
+#### Results figure 3 \– appendix version. Median time-to-first radiotherapy course and inter-quartile range for each cancer site, by jurisdiction.
+
+Highly uncertain estimates have been suppressed from the plot but were included in meta-analysis.
+
+Black circles show medians and black lines show inter-quartile ranges.
+
+Grey diamonds show the meta-analysis estimate and its confidence intervals. Wider grey lines show the associated prediction interval.
+
+![](results/radio_time1_overall_alternative1.png) 
+
+{{< pagebreak >}}
+
+### Results figure 4. Estimated differences in median-time-to-treatment by sex and age, from quantile regression.
+
+Highly uncertain estimates have been suppressed from the plot but were included in meta-analysis.
+
+Black circles show median differences and black lines show 95% confidence intervals.
+
+Grey diamonds show the meta-analysis estimate and its confidence intervals. Wider grey lines show the associated prediction interval.
+
+![](results/radio_time2_differences.png) 
+
+{{< pagebreak >}}
+
+### Results figure 5 / appendix. Meta-analysis estimates of average use vs meta-analysis estimates of median time-to-treatment.
+
+No clear association between time-to-treatment and use.
+
+![](results/radio_correlation.png) 
+
+{{< pagebreak >}}
+
+## Data appendices
+
+### Data appendix 1. Overall proportions treated in each jurisdiciton.
+
+```{r}
+#| label: data1
+#| echo: false
+#| results: asis
+
+readRDS("results/appdx_analysis1.RDS")
+
+```
+
+{{< pagebreak >}}
+
+### Data appendix 2. Odds ratio for treatment by sex and age group in each jurisdiction.
+
+```{r}
+#| label: data2
+#| echo: false
+#| results: asis
+
+readRDS("results/appdx_analysis2.RDS")
+
+```
+
+{{< pagebreak >}}
+
+### Data appendix 3. Quantiles of time to treatment in each jurisdiction.
+
+```{r}
+#| label: data3
+#| echo: false
+#| results: asis
+
+readRDS("results/appdx_analysis3.RDS")
+
+```
+
+{{< pagebreak >}}
+
+### Data appendix 4. Median difference in time to treatment by sex and age group in each jurisdiction.
+
+```{r}
+#| label: data4
+#| echo: false
+#| results: asis
+
+readRDS("results/appdx_analysis4.RDS")
+
+```
+
+
