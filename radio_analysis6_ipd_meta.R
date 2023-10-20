@@ -48,39 +48,39 @@ dat <- dat |>
 # IPD meta-analysis -------------------------------------------------------
 # Well,  "IPD" - adjusted for cancer and age
 
-all_unadj   <- glmer(cbind(n_trt,n-n_trt) ~ (1|jurisdiction), family = binomial(link = "logit"), data = dat)
+all_unadj   <- glmer(cbind(n_trt,n-n_trt) ~ (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(jurisdiction != "Prince Edward Island") |> filter(jurisdiction != "Saskatchewan"))
 
-all_cas     <- glmer(cbind(n_trt,n-n_trt) ~ site_order + (1|jurisdiction), family = binomial(link = "logit"), data = dat)
+all_cas     <- glmer(cbind(n_trt,n-n_trt) ~ site_order + (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(jurisdiction != "Prince Edward Island") |> filter(jurisdiction != "Saskatchewan"))
 
-all_cas_age <- glmer(cbind(n_trt,n-n_trt) ~ site_order*age + (1|jurisdiction), family = binomial(link = "logit"), data = dat)
+all_cas_age <- glmer(cbind(n_trt,n-n_trt) ~ site_order*age + (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(jurisdiction != "Prince Edward Island") |> filter(jurisdiction != "Saskatchewan"))
 
 summary(all_unadj)
 summary(all_cas)
 summary(all_cas_age)
 
-oes_all <- glmer(cbind(n_trt,n-n_trt) ~       (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Oesophageal"))
-oes_age <- glmer(cbind(n_trt,n-n_trt) ~ age + (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Oesophageal"))
+oes_all <- glmer(cbind(n_trt,n-n_trt) ~       (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Oesophageal") |> filter(!exclude))
+oes_age <- glmer(cbind(n_trt,n-n_trt) ~ age + (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Oesophageal") |> filter(!exclude))
 
-sto_all <- glmer(cbind(n_trt,n-n_trt) ~       (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Stomach"))
-sto_age <- glmer(cbind(n_trt,n-n_trt) ~ age + (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Stomach"))
+sto_all <- glmer(cbind(n_trt,n-n_trt) ~       (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Stomach") |> filter(!exclude))
+sto_age <- glmer(cbind(n_trt,n-n_trt) ~ age + (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Stomach") |> filter(!exclude))
 
-col_all <- glmer(cbind(n_trt,n-n_trt) ~       (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Colon"))
-col_age <- glmer(cbind(n_trt,n-n_trt) ~ age + (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Colon"))
+col_all <- glmer(cbind(n_trt,n-n_trt) ~       (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Colon") |> filter(!exclude))
+col_age <- glmer(cbind(n_trt,n-n_trt) ~ age + (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Colon") |> filter(!exclude))
 
-rec_all <- glmer(cbind(n_trt,n-n_trt) ~       (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Rectal"))
-rec_age <- glmer(cbind(n_trt,n-n_trt) ~ age + (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Rectal"))
+rec_all <- glmer(cbind(n_trt,n-n_trt) ~       (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Rectal") |> filter(!exclude))
+rec_age <- glmer(cbind(n_trt,n-n_trt) ~ age + (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Rectal") |> filter(!exclude))
 
-liv_all <- glmer(cbind(n_trt,n-n_trt) ~       (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Liver"))
-liv_age <- glmer(cbind(n_trt,n-n_trt) ~ age + (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Liver"))
+liv_all <- glmer(cbind(n_trt,n-n_trt) ~       (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Liver") |> filter(!exclude))
+liv_age <- glmer(cbind(n_trt,n-n_trt) ~ age + (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Liver") |> filter(!exclude))
 
-pan_all <- glmer(cbind(n_trt,n-n_trt) ~       (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Pancreatic"))
-pan_age <- glmer(cbind(n_trt,n-n_trt) ~ age + (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Pancreatic"))
+pan_all <- glmer(cbind(n_trt,n-n_trt) ~       (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Pancreatic") |> filter(!exclude))
+pan_age <- glmer(cbind(n_trt,n-n_trt) ~ age + (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Pancreatic") |> filter(!exclude))
 
-lun_all <- glmer(cbind(n_trt,n-n_trt) ~       (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Lung"))
-lun_age <- glmer(cbind(n_trt,n-n_trt) ~ age + (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Lung"))
+lun_all <- glmer(cbind(n_trt,n-n_trt) ~       (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Lung") |> filter(!exclude))
+lun_age <- glmer(cbind(n_trt,n-n_trt) ~ age + (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Lung") |> filter(!exclude))
 
-ova_all <- glmer(cbind(n_trt,n-n_trt) ~       (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Ovarian"))
-ova_age <- glmer(cbind(n_trt,n-n_trt) ~ age + (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Ovarian"))
+ova_all <- glmer(cbind(n_trt,n-n_trt) ~       (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Ovarian") |> filter(!exclude))
+ova_age <- glmer(cbind(n_trt,n-n_trt) ~ age + (1|jurisdiction), family = binomial(link = "logit"), data = dat |> filter(site_order == "Ovarian") |> filter(!exclude))
 
 # list RE standard deviations
 VarCorr(all_unadj)
