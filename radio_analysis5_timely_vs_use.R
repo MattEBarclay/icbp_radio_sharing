@@ -151,7 +151,7 @@ p <- p +
   theme(plot.margin = unit(c(0.1, 0.1, 0.1, 0.1), "cm")) +
   theme(panel.spacing.y = unit(0.3,"line"))
 p 
-ggsave("results/radio_correlation.png",
+ggsave("results/radio_correlation.svg",
        plot = p,
        width = 15,
        height = 15,
