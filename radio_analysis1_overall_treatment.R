@@ -29,10 +29,13 @@ dat1 <- trt_unadj_n |>
     variable == "age" & variable_value == "99" ~ "Age 85-99",
     variable == "sex" & variable_value == "M"  ~ "Men",
     variable == "sex" & variable_value == "F"  ~ "Women",
+    variable == "sex" & variable_value == "m"  ~ "Men",
+    variable == "sex" & variable_value == "f"  ~ "Women",
     TRUE ~ cancer
   )) |>
   mutate(cancer = cancer2) |>
   select(trt, jurisdiction, ordering, cancer, n, n_trt, prop, lower, upper) 
+
 
 dat2 <- trt_unadj_n |>
   filter(
@@ -236,7 +239,12 @@ p <- p + theme_bw() +
   theme_icbp() +
   icbp_colour_manual() 
 p 
-ggsave("results/radio_overall_props.svg",
+ggsave("results/figure1_radio.svg",
+       plot = p,
+       width = 15,
+       height = 22.5,
+       units = "cm")
+ggsave("results/figure1_radio.pdf",
        plot = p,
        width = 15,
        height = 22.5,
@@ -273,7 +281,12 @@ p <- p +
   icbp_colour_manual()
 p <- p + theme(strip.text.x=element_text(size=6)) 
 p 
-ggsave("results/radio_overall_props_alternative1.svg",
+ggsave("results/figure1_radio_appendix_v1.svg",
+       plot = p,
+       width = 15,
+       height = 13,
+       units = "cm")
+ggsave("results/figure1_radio_appendix_v1.pdf",
        plot = p,
        width = 15,
        height = 13,
@@ -369,7 +382,12 @@ p <- p + theme(axis.text.x=element_text(size=8, color="black", vjust = 0.5, hjus
 p <- p + facet_wrap(ctry_order~., ncol = 4)
 p <- p + theme(strip.text.x=element_text(size=7)) 
 p 
-ggsave("results/radio_overall_props_alternative2_lines.svg",
+ggsave("results/figure1_radio_appendix_v2.svg",
+       plot = p,
+       width = 15,
+       height = 13,
+       units = "cm")
+ggsave("results/figure1_radio_appendix_v2.pdf",
        plot = p,
        width = 15,
        height = 13,

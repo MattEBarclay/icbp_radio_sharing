@@ -3,7 +3,7 @@ title: "Radiotherapy results"
 format: 
   docx: 
     reference-doc: custom-reference-doc.docx
-output-file: "radio_main_results_2023-11-08.docx"
+output-file: "radio_main_results_2023-12-19.docx"
 ---
 
 
@@ -163,7 +163,7 @@ Grey diamonds show the meta-analysis estimate and its confidence intervals. Wide
 
 Estimates not included in producing meta-analysis estimates are shown as hollow light grey circles.
 
-![](results/radio_overall_props.svg) 
+![](results/figure1_radio.svg) 
 {{< pagebreak >}}
 
 #### Results figure 1 \– appendix version 1. Overall crude proportion of patients treated by radiotherapy for each cancer site, by jurisdiction.
@@ -174,7 +174,7 @@ Grey diamonds show the meta-analysis estimate and its confidence intervals. Wide
 
 Estimates not included in producing meta-analysis estimates are shown as hollow light grey circles.
 
-![](results/radio_overall_props_alternative1.svg) 
+![](results/figure1_radio_appendix_v1.svg) 
 
 {{< pagebreak >}}
 
@@ -182,7 +182,7 @@ Estimates not included in producing meta-analysis estimates are shown as hollow 
 
 In each figure panel, the jurisdiction-specific estimate is shown in bold black line, whereas all other jurisdiction lines are shown in grey. Cancer sites on the x-axis appear in order of increasing radiotherapy use across the total analysis sample comprising all jurisdictions.
 
-![](results/radio_overall_props_alternative2_lines.svg) 
+![](results/figure1_radio_appendix_v2.svg) 
 
 
 {{< pagebreak >}}
@@ -196,7 +196,7 @@ White circle estimates are adjusted for stage at diagnosis – only shown for ju
 
 Grey diamonds show the meta-analysis estimate and its confidence intervals. Wider grey lines show the associated prediction interval.
 
-![](results/radio_odds.svg) 
+![](results/figure2_radio.svg) 
 
 {{< pagebreak >}}
 
@@ -208,7 +208,7 @@ Black circles show medians and black lines show inter-quartile ranges.
 
 Grey diamonds show the meta-analysis estimate and its confidence intervals. Wider grey lines show the associated prediction interval.
 
-![](results/radio_time1_overall.svg) 
+![](results/figure3_radio.svg) 
 
 {{< pagebreak >}}
 
@@ -220,7 +220,7 @@ Black circles show medians and black lines show inter-quartile ranges.
 
 Grey diamonds show the meta-analysis estimate and its confidence intervals. Wider grey lines show the associated prediction interval.
 
-![](results/radio_time1_overall_alternative1.svg) 
+![](results/figure3_radio_appendix.svg) 
 
 {{< pagebreak >}}
 
@@ -232,7 +232,7 @@ Black circles show median differences and black lines show 95% confidence interv
 
 Grey diamonds show the meta-analysis estimate and its confidence intervals. Wider grey lines show the associated prediction interval.
 
-![](results/radio_time2_differences.svg) 
+![](results/figure4_radio_appendix.svg) 
 
 {{< pagebreak >}}
 
@@ -240,7 +240,7 @@ Grey diamonds show the meta-analysis estimate and its confidence intervals. Wide
 
 No clear association between time-to-treatment and use.
 
-![](results/radio_correlation.svg) 
+![](results/figure5_radio_correlation_appendix.svg) 
 
 {{< pagebreak >}}
 
@@ -300,7 +300,7 @@ readRDS("results/appdx_analysis4.RDS")
 ### Data appendix 5. Trends in radiotherapy.
 
 #### Trends in radiotherapy overall
-![](results/radio_overall_trend.svg) 
+![](results/figure6_radio_overall_trend_appendix.svg) 
 
 ```{r}
 #| label: data5

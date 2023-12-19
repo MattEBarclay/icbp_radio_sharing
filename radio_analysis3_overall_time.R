@@ -236,11 +236,17 @@ p <- p + theme_bw() +
   theme_icbp() +
   icbp_colour_manual()
 p 
-ggsave("results/radio_time1_overall.svg",
+ggsave("results/figure3_radio.pdf",
        plot = p,
        width = 15,
        height = 15,
        units = "cm")
+ggsave("results/figure3_radio.svg",
+       plot = p,
+       width = 15,
+       height = 15,
+       units = "cm")
+
 
 
 # Alternative layout
@@ -271,12 +277,16 @@ p <- p + theme_bw() +
   icbp_colour_manual()
 p <- p + theme(strip.text.x=element_text(size=6)) 
 p 
-ggsave("results/radio_time1_overall_alternative1.svg",
+ggsave("results/figure3_radio_appendix.pdf",
        plot = p,
        width = 15,
        height = 13,
        units = "cm")
-
+ggsave("results/figure3_radio_appendix.svg",
+       plot = p,
+       width = 15,
+       height = 13,
+       units = "cm")
 
 # Clean up ----------------------------------------------------------------
 rm(list = ls())
